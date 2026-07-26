@@ -1,0 +1,20 @@
+# Licensed to the Apache Software Foundation (ASF) under one or more
+# contributor license agreements. See the NOTICE file distributed with
+# this work for additional information regarding copyright ownership.
+# The ASF licenses this file to You under the Apache License, Version 2.0.
+
+spring:
+  application:
+    name: source-learning-provider
+  main:
+    banner-mode: "off"
+    web-application-type: none
+
+learning:
+  provider-port: 20880
+  provider-id: provider-${learning.provider-port}
+  provider-delay-ms: 0
+
+logging:
+  pattern:
+    console: "%d{HH:mm:ss.SSS} %-5level [%thread] %logger{40} - %msg%n"
