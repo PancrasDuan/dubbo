@@ -207,7 +207,13 @@
       <scope>compile</scope>
       <optional>true</optional>
     </dependency>
-
+    <dependency>
+      <groupId>org.apache.dubbo</groupId>
+      <artifactId>dubbo-metrics-otlp</artifactId>
+      <version>${project.version}</version>
+      <scope>compile</scope>
+      <optional>true</optional>
+    </dependency>
     <!-- tracing -->
     <dependency>
       <groupId>org.apache.dubbo</groupId>
@@ -495,6 +501,7 @@
                   <include>org.apache.dubbo:dubbo-configcenter-zookeeper</include>
                   <include>org.apache.dubbo:dubbo-filter-cache</include>
                   <include>org.apache.dubbo:dubbo-filter-validation</include>
+                  <include>org.apache.dubbo:dubbo-mcp</include>
                   <include>org.apache.dubbo:dubbo-metadata-api</include>
                   <include>org.apache.dubbo:dubbo-metadata-definition-protobuf</include>
                   <include>org.apache.dubbo:dubbo-metadata-report-nacos</include>
@@ -507,6 +514,7 @@
                   <include>org.apache.dubbo:dubbo-metrics-config-center</include>
                   <include>org.apache.dubbo:dubbo-metrics-netty</include>
                   <include>org.apache.dubbo:dubbo-metrics-prometheus</include>
+                  <include>org.apache.dubbo:dubbo-metrics-otlp</include>
                   <include>org.apache.dubbo:dubbo-tracing</include>
                   <include>org.apache.dubbo:dubbo-qos</include>
                   <include>org.apache.dubbo:dubbo-qos-api</include>
@@ -540,6 +548,7 @@
                   <include>org.apache.dubbo:dubbo-serialization-hessian2</include>
                   <include>org.apache.dubbo:dubbo-serialization-fastjson2</include>
                   <include>org.apache.dubbo:dubbo-plugin-loom</include>
+
                   <include>io.netty:*</include>
                 </includes>
               </artifactSet>
@@ -1007,6 +1016,21 @@
       </dependencies>
     </profile>
     <profile>
+      <id>mcp</id>
+      <activation>
+        <jdk>[17,)</jdk>
+      </activation>
+      <dependencies>
+        <dependency>
+          <groupId>org.apache.dubbo</groupId>
+          <artifactId>dubbo-mcp</artifactId>
+          <version>${project.version}</version>
+          <scope>compile</scope>
+          <optional>true</optional>
+        </dependency>
+      </dependencies>
+    </profile>
+    <profile>
       <id>reactive-mutiny</id>
       <activation>
         <jdk>[17,)</jdk>
@@ -1056,6 +1080,13 @@
         <dependency>
           <groupId>org.apache.dubbo</groupId>
           <artifactId>dubbo-mutiny</artifactId>
+          <version>${project.version}</version>
+          <scope>compile</scope>
+          <optional>true</optional>
+        </dependency>
+        <dependency>
+          <groupId>org.apache.dubbo</groupId>
+          <artifactId>dubbo-mcp</artifactId>
           <version>${project.version}</version>
           <scope>compile</scope>
           <optional>true</optional>
